@@ -23,6 +23,32 @@
         android:text="@string/access2next_way2_text" />
 
     <Button
+        android:id="@+id/open_browser_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/open_browser_text" />
+
+    <Button
+        android:id="@+id/dialog_tel_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_tel_text" />
+
+    <Button
+        android:id="@+id/trans_msg2next_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/trans_msg2next_text" />
+
+
+    <Button
+        android:id="@+id/trans_msg2next4msg_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/trans_msg2next4msg_text" />
+
+
+    <Button
         android:id="@+id/back_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

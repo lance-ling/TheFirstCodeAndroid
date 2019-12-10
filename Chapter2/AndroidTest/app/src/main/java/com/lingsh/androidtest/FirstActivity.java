@@ -1,10 +1,13 @@
 package com.lingsh.androidtest;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +15,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class FirstActivity extends AppCompatActivity {
+
+    private static final String TAG = "FirstActivity";
+    public static final int REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +67,46 @@ public class FirstActivity extends AppCompatActivity {
             }
         });
 
+        Button openBrowserButton = findViewById(R.id.open_browser_button);
+        openBrowserButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("http://www.baidu.com"));
+                startActivity(intent);
+            }
+        });
 
+        Button dialogTelButton = findViewById(R.id.dialog_tel_button);
+        dialogTelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:10086"));
+                startActivity(intent);
+            }
+        });
+
+        Button transMsg2NextButton = findViewById(R.id.trans_msg2next_button);
+        transMsg2NextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String transMsg = "TRANS MSG: FirstActivity --> ";
+                Intent intent = ThirdActivity.bindExtraData(FirstActivity.this, transMsg);
+                startActivity(intent);
+            }
+        });
+
+
+        Button transMsg2Next4MsgButton = findViewById(R.id.trans_msg2next4msg_button);
+        transMsg2Next4MsgButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String transMsg = "TRANS MSG2: FirstActivity --> ";
+                Intent intent = ThirdActivity.bindExtraData(FirstActivity.this, transMsg);
+                startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
     }
 
     @Override
@@ -85,5 +130,21 @@ public class FirstActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        Log.d(TAG, "onActivityResult() called with: requestCode = [" + requestCode + "], resultCode = [" + resultCode + "], data = [" + data + "]");
+
+        switch (requestCode) {
+            case REQUEST_CODE:
+                if (resultCode == RESULT_OK) {
+                    String stringExtra = data.getStringExtra(ThirdActivity.RET_LABEL);
+                    Log.d(TAG, "onActivityResult: " + stringExtra);
+                }
+                break;
+            default:
+                super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }

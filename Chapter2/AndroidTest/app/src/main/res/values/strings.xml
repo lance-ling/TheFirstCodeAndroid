@@ -14,4 +14,12 @@
     <string name="back2pre_text">返回上一页面</string>
     <string name="access2next_way1_text">进入第二页面 显示Intent</string>
     <string name="access2next_way2_text">进入第二页面 隐式Intent</string>
+    <string name="display_third">第三个页面显示</string>
+    <string name="open_browser_text">打开游览器类页面/应用</string>
+    <string name="dialog_tel_text">拨打电话</string>
+    <string name="trans_msg2next_text">传输数据到下一页面</string>
+    <string name="trans_msg2next4msg_text">传输数据到下一页面并收到返回数据</string>
+    <string name="return_data2pre_text">返回数据到上一页面</string>
+    <string name="third_activity_label">This is ThirdActivity</string>
+    <string name="second_activity_label">This is SecondActivity</string>
 </resources>
