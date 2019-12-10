@@ -22,4 +22,5 @@
     <string name="return_data2pre_text">返回数据到上一页面</string>
     <string name="third_activity_label">This is ThirdActivity</string>
     <string name="second_activity_label">This is SecondActivity</string>
+    <string name="call2next_layout_text">跳转至下一页面</string>
 </resources>

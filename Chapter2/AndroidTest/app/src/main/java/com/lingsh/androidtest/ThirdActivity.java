@@ -26,6 +26,8 @@ public class ThirdActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: ");
 
+        Log.d(TAG, "onCreate: Task id is " + getTaskId());
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.third_layout);
 
@@ -45,6 +47,15 @@ public class ThirdActivity extends AppCompatActivity {
                 intent.putExtra(RET_LABEL, retData);
                 setResult(RESULT_OK, intent);
                 finish();
+            }
+        });
+
+        Button call2FirstButton = findViewById(R.id.call2first_button);
+        call2FirstButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ThirdActivity.this, FirstActivity.class);
+                startActivity(intent);
             }
         });
     }

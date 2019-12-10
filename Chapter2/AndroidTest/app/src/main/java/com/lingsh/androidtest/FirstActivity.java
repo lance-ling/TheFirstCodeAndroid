@@ -23,6 +23,15 @@ public class FirstActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        /**
+         * 启动模式
+         *  - standard 默认标准模式 每次启动activity都是全新的 完全不顾栈中已经创建过启动的activity且在栈顶(当前)
+         *  - singleTop 当栈顶已有所需创建的activity 则直接复用 (很好地解决重复创建栈顶activity的问题)
+         *  - singleTask 当栈内已有所需创建的activity 则将其置入栈顶(即其上的activity全部弹出) 没有则自建
+         *  - singleInstance 给被设置该模式的activity单独设置一个返回栈 解决共享activity实例问题
+         */
+        Log.d(TAG, "onCreate: " + this.toString());
+        Log.d(TAG, "onCreate: Task id is " + getTaskId());
         // 用于给当前Activity加载一个布局
         setContentView(R.layout.first_layout);
 
@@ -55,6 +64,15 @@ public class FirstActivity extends AppCompatActivity {
                 // 个人设置了 com.lingsh.activitytest.ACTION_START的ACTION属性
                 Intent intent = new Intent("com.lingsh.activitytest.ACTION_START");
                 intent.addCategory("com.lingsh.activitytest.MY_CATEGORY");
+                startActivity(intent);
+            }
+        });
+
+        Button call2SecondButton = findViewById(R.id.call2second_button);
+        call2SecondButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
                 startActivity(intent);
             }
         });

@@ -23,6 +23,12 @@
         android:text="@string/access2next_way2_text" />
 
     <Button
+        android:id="@+id/call2second_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/call2next_layout_text" />
+
+    <Button
         android:id="@+id/open_browser_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ThirdActivity"
+        <activity
+            android:name=".ThirdActivity"
             android:label="@string/third_activity_label">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -19,8 +20,10 @@
                 <data android:scheme="http" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity"
-            android:label="@string/second_activity_label">
+        <activity
+            android:name=".SecondActivity"
+            android:label="@string/second_activity_label"
+            android:launchMode="singleInstance">
             <intent-filter>
 
                 <!-- 约定设置 -->
