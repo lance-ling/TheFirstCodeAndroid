@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AndroidLifeCycleTest</string>
+    <string name="normal_layout_text">This is a normal activity</string>
+    <string name="dialog_layout_text">This is a dialog activity</string>
+    <string name="normal_button_text">打开Normal页面</string>
+    <string name="dialog_button_text">打开DIALOG页面</string>
+</resources>
