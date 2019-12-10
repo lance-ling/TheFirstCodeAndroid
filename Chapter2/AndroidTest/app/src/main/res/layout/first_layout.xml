@@ -11,6 +11,18 @@
         android:text="@string/click_button_text" />
 
     <Button
+        android:id="@+id/access2next_button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/access2next_way1_text" />
+
+    <Button
+        android:id="@+id/access2next_button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/access2next_way2_text" />
+
+    <Button
         android:id="@+id/back_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -9,10 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FirstActivity"
+        <activity android:name=".SecondActivity">
+            <intent-filter>
+                <!-- 约定设置 -->
+                <action android:name="com.lingsh.activitytest.ACTION_START" />
+                <!-- action只能有一个 category可以有多个 -->
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.lingsh.activitytest.MY_CATEGORY" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".FirstActivity"
             android:label="@string/first_activity_label">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

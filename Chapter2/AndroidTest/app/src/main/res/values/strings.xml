@@ -11,4 +11,7 @@
     <string name="first_activity_label">This is FirstActivity</string>
     <string name="menu_add_text">添加</string>
     <string name="menu_remove_text">移除</string>
+    <string name="back2pre_text">返回上一页面</string>
+    <string name="access2next_way1_text">进入第二页面 显示Intent</string>
+    <string name="access2next_way2_text">进入第二页面 隐式Intent</string>
 </resources>
