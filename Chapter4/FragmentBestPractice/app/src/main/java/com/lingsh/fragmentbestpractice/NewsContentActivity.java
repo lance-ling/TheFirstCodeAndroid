@@ -1,11 +1,10 @@
 package com.lingsh.fragmentbestpractice;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.ListFragment;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class NewsContentActivity extends AppCompatActivity {
 
