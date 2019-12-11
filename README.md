@@ -23,3 +23,13 @@
 > 2. singleTop 当栈顶已有所需创建的activity 则直接复用 (很好地解决重复创建栈顶activity的问题)
 > 3. singleTask 当栈内已有所需创建的activity 则将其置入栈顶(即其上的activity全部弹出) 没有则自建
 > 4. singleInstance 给被设置该模式的activity单独设置一个返回栈 解决共享activity实例问题
+
+## Chapter 3 UI开发
+- 4种基本布局
+> 1. LinearLayout 线性布局 (默认horizontal水平排列)
+> 2. RelativeLayout 相对布局 (相对定位)
+> 3. FrameLayout 帧布局
+> 4. PercentFrameLayout/PercentRelativeLayout 百分比布局
+- 自定义控件
+- 控件: ListView
+- 控件: RecyclerView
