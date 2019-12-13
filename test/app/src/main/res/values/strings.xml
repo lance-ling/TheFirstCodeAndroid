@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ActivityCallTest</string>
+    <string name="tran2next">跳转至其他页面 1</string>
+    <string name="tran2other">跳转到其他页面 2</string>
+</resources>
