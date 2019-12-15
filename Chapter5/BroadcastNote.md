@@ -54,7 +54,30 @@
 5. 可以在onReceive()方法中调用abortBroadcast方法截断当前广播
 
 #### 发送本地广播
+- 发送广播步骤 (只能使用动态注册)
+1. 定义广播接收器(继承BroadcastReceiver)
+2. 通过LocalBroadcastManager.getInstance(this)获取本地广播管理实例
+3. 接收：设置指定接收广播类型，再通过LocalBroadcastManager注册
+localBroadcastManager.registerReceiver(BroadcastReceiver, IntentFilter)
+4. 发送：设置指定发送广播类型，再通过LocalBroadcastManager发送
+localBroadcastManager.sendBroadcast(Intent)
+5. 在onDestroy方法中解除注册 
+localBroadcastManager.unregisterReceiver(BroadcastReceiver)
 
-## 吐槽
-1. API变化太频繁了，ConntectivityManager.getNetworkInfo/getActiveNetworkInfo 都惨遭遗弃，连NetworInfo也被遗弃了。。。
-有些甚至API 21添加， API 23移除
+- 本地广播的优势
+1. 可以明确地知道正在发送的广播不会离开当前程序，没有机密数据泄露问题
+2. 不会接收其他程序的广播，没有安全漏洞隐患
+3. 发送本地广播比发送系统全局广播更加高效
+
+## 最佳实践 --强制下线功能
+- 基本思路
+1. 强制下线需要先关闭所有的活动，然后回到登录界面
+2. 在某一页面收到账号在他处登录时，启动强制下线
+3. 强制下线将弹出一个对话框，使得用户无法进行其他任何操作，必须点击确认后，返回登录界面
+
+- 实现
+1. ActivityCollector 管理所有活动 使用List实现
+2. BaseActivity 作为所有Activity的父类 与ActivityCollector组合，添加删除
+3. LoginActivity 登录界面 强制下线后返回页面
+4. MainActivity 内含强制下线按钮 发送强制下线广播
+5. ForceOfflineReceiver 强制下线的广播接收器 处理强制下线逻辑

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BroadcastBestPractice</string>
+    <string name="label_account">Account:</string>
+    <string name="hint_account">input your account</string>
+    <string name="label_password">Password</string>
+    <string name="hint_password">input your password of account</string>
+    <string name="label_login">Login</string>
+    <string name="text_force_offline">force offline</string>
+</resources>
