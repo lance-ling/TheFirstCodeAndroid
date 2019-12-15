@@ -1,4 +1,4 @@
-package com.lingsh.broadcasttest;
+package com.lingsh.broadcasttest2;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,7 +9,6 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Toast.makeText(context, "received in MyBroadcastReceiver", Toast.LENGTH_SHORT).show();
-        abortBroadcast();
+        Toast.makeText(context, "received in AnotherBroadcastReceiver", Toast.LENGTH_SHORT).show();
     }
 }

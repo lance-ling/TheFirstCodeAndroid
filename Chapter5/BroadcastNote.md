@@ -53,6 +53,8 @@
 4. 可以在AndroidManifest.xml的`<intent-filter android:priority=?>`设置优先级
 5. 可以在onReceive()方法中调用abortBroadcast方法截断当前广播
 
+#### 发送本地广播
+
 ## 吐槽
 1. API变化太频繁了，ConntectivityManager.getNetworkInfo/getActiveNetworkInfo 都惨遭遗弃，连NetworInfo也被遗弃了。。。
 有些甚至API 21添加， API 23移除
