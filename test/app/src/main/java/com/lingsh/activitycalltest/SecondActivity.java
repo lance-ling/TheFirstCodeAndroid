@@ -1,12 +1,16 @@
 package com.lingsh.activitycalltest;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.List;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -25,6 +29,16 @@ public class SecondActivity extends AppCompatActivity {
                 Intent intent = new Intent(SecondActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        Button testRunningService = findViewById(R.id.test_running_service);
+        testRunningService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityManager manager = (ActivityManager) getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE);
+                List<ActivityManager.RunningServiceInfo> runningServices = manager.getRunningServices(100);
+                Log.d(TAG, "onClick: " + runningServices);
             }
         });
 

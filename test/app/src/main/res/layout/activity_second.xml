@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".SecondActivity">
 
     <Button
@@ -11,5 +12,11 @@
         android:layout_height="wrap_content"
         android:text="@string/tran2other" />
 
+
+    <Button
+        android:id="@+id/test_running_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/test_running" />
 
 </LinearLayout>
