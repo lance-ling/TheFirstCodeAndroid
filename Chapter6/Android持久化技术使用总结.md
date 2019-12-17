@@ -72,3 +72,25 @@ try {
 - 注意：Android Studio虚拟机高版本没有root权限 也没有sqlite。。 本例是在Android 5.0中运行测试的
 
 #### 使用LitePal操作数据库
+- 介绍
+   开源的Android数据库框架，采用对象关系映射ORM的模式，并对常用的数据库功能进行了封装，使得可以不用编写SQL语句就可以完成各种建表和增删查改的操作
+- 配置LitePal
+  1. 在dependencies闭包中添加依赖
+  2. 在main目录下创建assets目录存放litepal.xml文件
+  3. litepal.xml文件中定义数据库名称和数据库版本号
+  4. 在AndroidManifest.xml中application节点添加android:name="org.litepal.LitePalApplation"元素
+- 创建和升级数据库
+  1. 先创建JavaBean，在litepal.xml中的list节点添加mapping元素
+  2. 直接调用LitePal.getDatabase()方法就自动创建数据库了
+  3. 要更新的话，修改完信息(Bean类 新建Bean类等)，更新litepal.xml的version节点即可 (同时Litepal自动保留之前表中的所有数据)
+- 添加数据
+  1. 让Bean类继承LitePalSupport (LitePal 3.0.0)
+  2. 实例化Bean类后 直接调用save()方法 如此数据就添加到数据库
+- 更新数据
+  1. 修改Bean对象，直接调用对象的updateAll()方法
+- 删除数据
+  1. 调用LitePalSupport的静态方法deleteAll() 删除指定约束条件的哪张表格的数据
+- 查询数据
+  1. 调用LitePalSupport的静态方法findAll() 返回对象列表
+  2. 其他常用API select/where/order/limit/offset/find
+  3. 调用LitePalSupport的静态方法findBySQL() 进行原生查询

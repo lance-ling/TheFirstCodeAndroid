@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LitePalTest</string>
+    <string name="text_create_database">Create Database</string>
+    <string name="text_update_database">update database</string>
+    <string name="text_insert_data">insert data</string>
+    <string name="text_update_data">update data</string>
+    <string name="text_delete_data">delete data</string>
+    <string name="text_query_data">query data</string>
+</resources>
