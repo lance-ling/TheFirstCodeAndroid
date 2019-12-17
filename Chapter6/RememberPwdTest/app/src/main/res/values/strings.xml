@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RememberPwdTest</string>
+    <string name="text_account">Account</string>
+    <string name="hint_input_account">input account</string>
+    <string name="hint_input_password">input password</string>
+    <string name="text_login">Login</string>
+    <string name="text_force_offline">force offline</string>
+    <string name="text_remember_password">Remember password</string>
+</resources>

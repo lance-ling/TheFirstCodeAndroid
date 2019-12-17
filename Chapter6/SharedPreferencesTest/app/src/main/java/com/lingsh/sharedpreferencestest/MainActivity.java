@@ -10,9 +10,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-/**
- * @author zhuoniu
- */
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
