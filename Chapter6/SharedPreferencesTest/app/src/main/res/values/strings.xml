@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SharedPreferencesTest</string>
+    <string name="text_name">姓名</string>
+    <string name="hint_input_name">请输入姓名</string>
+    <string name="text_age">年龄</string>
+    <string name="hint_input_age">请输入你的年龄</string>
+    <string name="text_gender">性别</string>
+    <string name="hint_input_gender">0女生/1男生</string>
+    <string name="store">存入SharedPreferences</string>
+    <string name="load">从SharedPreferences取出</string>
+</resources>

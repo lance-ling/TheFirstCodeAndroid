@@ -32,5 +32,17 @@ try {
     2. 可以使用BufferedReader将数据从文件中读取 Java IO流
 
 ### SharedPreferences存储
+使用键值对的方式存储数据
+#### 将数据存储到SharedPreferences中
+- 获取SharedPreferences对象
+    1. Context类 getSharedPreferences(filename, MODE_PRIVATE) 文件名和指定操作模式 Android 6.0+只有MODE_PRIVATE一种模式
+    2. Activity类 getPreferences(MODE_PRIVATE) 指定操作模式 文件名为当前活动类名
+    3. PreferenceManager类 getDefaultSharedPreferences(Context):static 自动使用当前程序包名作为前缀来命名SharedPreferences文件
+- 通过SharedPreferences对象向文件中存储数据
+  1. 调用SharedPreferences对象的edit方法来获取一个SharedPreferences.Edit对象
+  2. 向SharedPreferences.Edit对象中添加数据，使用putXXX方法(putBoolean, putString, putInt)
+  3. 调用apply方法将添加的数据提交，完成数据存储操作
+#### 从SharedPreferences中读取数据
+通过上面方法获取SharedPreferences对象，使用getXXX方法获取数据 (getBoolean, getString, getInt)
 
 ### 数据库存储
