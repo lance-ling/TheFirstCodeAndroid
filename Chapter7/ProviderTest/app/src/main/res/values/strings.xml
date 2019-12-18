@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ProviderTest</string>
+    <string name="text_add">Add to Book</string>
+    <string name="text_query">Query From Book</string>
+    <string name="text_update">Update Book</string>
+    <string name="text_delete">Delete From Book</string>
+</resources>
