@@ -19,3 +19,16 @@
 |SENSORS|BODY_SENSORS |
 |SMS|SEND_SMS/RECEIVE_SMS/READ_SMS/RECEIVE_WAP_PUSH/RECEIVE_MMS |
 |STORAGE|READ_EXTERNAL_STORAGE/WRITE_EXTERNAL_STORAGE |
+
+- 注意：
+> 1. 普通权限只需在AndroidManifest.xml中使用<uses-permission android:name="">配置即可，系统会自动帮我们授权， 但危险权限需要运行时权限处理，必须由用户手动赋权
+> 2. 当用户授权了某一个权限，该权限所属权限组的其他权限也会被授权
+
+### 在运行时申请权限
+- 申请步骤
+  1. 在AndroidManifest.xml文件中声明权限
+  2. 在程序需要权限的之处，通过ContextCompat.checkSelfPermission()方法进行判断是否授权
+  3. 如果没有授权，则通过ActivityCompat.requestPermissions()方法进行申请
+  4. 同时在当前Activity中override重写onRequestPermissionsResult()方法 处理之前权限申请的返回结果
+
+## 访问其他程序中的数据
