@@ -32,3 +32,25 @@
   4. 同时在当前Activity中override重写onRequestPermissionsResult()方法 处理之前权限申请的返回结果
 
 ## 访问其他程序中的数据
+### ContentResolver的基本用法
+1. 创建实例 Context.getContentResolver()
+2. 查询数据 getContentResolver().query(uri, projection, selection, selectionArgs, sortOrder):Cursor
+3. 添加数据 getContentResolver().insert(uri, ContentValues)
+4. 更新数据 getContentResolver().update(uri, ContentValues, selection, selectionArgs)
+5. 删除数据 getContentResolver().delete(uri, selection, selectionArgs)
+
+###  创建内容提供器
+1. 继承ContentProvider
+2. 实现所继承的方法 onCreate()/query()/insert()/update()/delete()/getType()
+   1. onCreate() 初始化内容提供器 进行对数据库的创建和升级
+   2. query() 从内容提供器中查询数据 
+   3. insert() 向内容提供器中添加一条数据
+   4. update() 更新内容提供器中已有的数据
+   5. delete() 从内容提供器中删除数据
+   6. getType() 根据传入的内容URI来返回相应的MIME类型
+3. Uri格式 
+   1. 表格 content://<包名>.provider/<表名>
+   2. 数据 content://<包名>.provider/<表名>/<数据id>
+4. MIME格式
+   1. 表格 vnd.android.cursor.dir/vnd.<包名>.provider.<表名>
+   2. 数据 vnd.android.cursor.item/vnd.<包名>.provider.<表名>
