@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ContentProviderTest</string>
+    <string name="text_create_provider">create provider</string>
+    <string name="text_query_provider">query data</string>
+    <string name="text_update_provider">update data</string>
+    <string name="text_insert_provider">insert data</string>
+    <string name="text_delete_provider">delete data</string>
+    <string name="comment">仅作为内容提供器</string>
+</resources>
