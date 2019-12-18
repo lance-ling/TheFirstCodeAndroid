@@ -7,4 +7,7 @@
     <string name="text_send_lights">notification with lights</string>
     <string name="text_send_default">notification with default</string>
     <string name="text_back">back</string>
+    <string name="text_send_big_text">big text</string>
+    <string name="text_send_pic">picture</string>
+    <string name="text_send_priority">priority</string>
 </resources>

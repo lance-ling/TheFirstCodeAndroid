@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = "MainActivity";
     private static final String NOTI_TITLE = "This is content title";
     private static final String NOTI_CONTENT = "This is content text";
+    private static final String MSG = "Class for retrieving various kinds of information related to the application packages that are currently installed on the device. You can find this class through Context#getPackageManager.";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button sendNotificationDefault = (Button) findViewById(R.id.send_notification_with_default);
         sendNotificationDefault.setOnClickListener(this);
+
+        Button sendBigTextNotification = (Button) findViewById(R.id.send_big_text_notification);
+        sendBigTextNotification.setOnClickListener(this);
+
+        Button sendPicNotification = (Button) findViewById(R.id.send_pic_notification);
+        sendPicNotification.setOnClickListener(this);
+
+        Button sendPriorityNotification = (Button) findViewById(R.id.send_priority_notification);
+        sendPriorityNotification.setOnClickListener(this);
     }
 
     @Override
@@ -61,6 +72,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.send_notification_with_default:
                 defaultNotification();
+                break;
+            case R.id.send_big_text_notification:
+                bigTextNotification();
+                break;
+            case R.id.send_pic_notification:
+                pictureNotification();
+                break;
+            case R.id.send_priority_notification:
+                priorityNotification();
                 break;
             default:
                 break;
@@ -92,6 +112,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void defaultNotification() {
         String channelId = "my_channel_id_05";
         runNotification(getBaseBuilder(channelId).setDefaults(NotificationCompat.DEFAULT_ALL).build());
+    }
+
+    private void bigTextNotification() {
+        String channelId = "my_channel_id_06";
+        NotificationCompat.BigTextStyle style = new NotificationCompat.BigTextStyle().bigText(MSG);
+        runNotification(getBaseBuilder(channelId).setStyle(style).build());
+    }
+
+    private void pictureNotification() {
+        String channelId = "my_channel_id_07";
+        Bitmap resource = BitmapFactory.decodeResource(getResources(), R.drawable.big_image);
+        NotificationCompat.BigPictureStyle style = new NotificationCompat.BigPictureStyle().bigPicture(resource);
+        runNotification(getBaseBuilder(channelId).setStyle(style).build());
+    }
+
+    private void priorityNotification() {
+        String channelId = "my_channel_id_08";
+        runNotification(getBaseBuilder(channelId).setPriority(NotificationCompat.PRIORITY_MAX).build());
     }
 
     private PendingIntent getPendingIntent() {
