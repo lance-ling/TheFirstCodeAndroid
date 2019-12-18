@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <Button
@@ -10,5 +11,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/text_send" />
+
+
+    <Button
+        android:id="@+id/send_notification_with_sound"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_send_sound" />
+
+
+    <Button
+        android:id="@+id/send_notification_with_vibrate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_send_vibrate" />
+
+
+    <Button
+        android:id="@+id/send_notification_with_lights"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_send_lights" />
+
+
+    <Button
+        android:id="@+id/send_notification_with_default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_send_default" />
+
+
 
 </LinearLayout>

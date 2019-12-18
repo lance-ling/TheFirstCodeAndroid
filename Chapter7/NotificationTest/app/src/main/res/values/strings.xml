@@ -2,4 +2,9 @@
     <string name="app_name">NotificationTest</string>
     <string name="text_send">send notification</string>
     <string name="text_notification">This is notification layout</string>
+    <string name="text_send_sound">notification with sound</string>
+    <string name="text_send_vibrate">notification with vibrate</string>
+    <string name="text_send_lights">notification with lights</string>
+    <string name="text_send_default">notification with default</string>
+    <string name="text_back">back</string>
 </resources>
