@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">CalendarTest</string>
+    <string name="text_calendar">日历表</string>
+    <string name="query_calendar">查询日历</string>
+    <string name="modify_calendar">修改日历</string>
+    <string name="insert_calendar">插入日历</string>
+    <string name="text_event">事件表</string>
+    <string name="update_event">更新事件</string>
+    <string name="delete_event">删除事件</string>
+    <string name="participant">参与者表</string>
+    <string name="add_participant">添加参与者</string>
+    <string name="notify">提醒表</string>
+    <string name="add_notify">添加提醒</string>
+    <string name="instance">实例表</string>
+    <string name="query_instance">查询实例表</string>
+    <string name="crash_permission">放弃权限</string>
+    <string name="add_event">添加事件</string>
+    <string name="query_event">查询事件</string>
+</resources>

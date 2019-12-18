@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_calendar"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/query_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/query_calendar" />
+
+        <Button
+            android:id="@+id/modify_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/modify_calendar" />
+
+        <Button
+            android:id="@+id/insert_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/insert_calendar" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_event"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/add_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_event" />
+        <Button
+            android:id="@+id/query_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/query_event" />
+
+        <Button
+            android:id="@+id/update_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/update_event" />
+
+        <Button
+            android:id="@+id/delete_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/delete_event" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/participant"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/add_participant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_participant" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notify"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/add_notify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_notify" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/instance"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/query_instance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/query_instance" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/crash_permission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/crash_permission" />
+
+</LinearLayout>
