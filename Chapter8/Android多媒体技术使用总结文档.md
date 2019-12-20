@@ -16,9 +16,30 @@
 - 取消通知
 1. 配置NotificationCompat.Builder对象的setAutoCancel()方法
 2. 调用NotificationManager对象的cancel()方法 传入需要被取消的id
-3. 
-## 摄像头和相册
 
+### 进阶用法 
+1. 带铃声 .setSound()
+2. 带震动 .setVibrate()
+3. 带LED灯 .setLights()
+4. 默认效果 .setDefault()
+
+### 高级用法
+1. 富文本 NotificationCompat.BigTextStyle().bigText()
+2. 带图片 NotificationCompat.BigPictureStyle().bigPicture()
+3. 优先级 .setPriority()
+
+## 摄像头和相册
+### 调用摄像头拍照
+1. 创建File对象，用于存放拍下的图片 存放位置设为应用关联缓存目录getExternalCacheDir() 
+   1. 具体路径："/sdcard/Android/data/<package name>/cache"
+   2. 从Android 6.0之后 读写SD卡被列为危险权限 如果将图片存放在SD卡的任何其他位置，都需要运行时权限处理才行，而使用应用关联目录则可以跳过这一步
+2. 判断：
+   1. Android 7.0- 调用Uri的fromFile()方法将File对象转换为Uri对象
+   2. Android 7.0+ 调用FileProvider的getUriForFile()方法将File对象转换成一个封装过的Uri对象
+3. 构建一个Intent对象 将该Intent对象的action置为android.media.action.IMAGE_CAPTURE 再将图片地址置入putExtra() 最后调用startActivityForResult()启动Activity
+4. 在onActivityResult()方法中，调用BitmapFactory的decodeStream()方法将拍下的图片解析成Bitmap对象
+
+### 从相册中选择图片
 
 ## 多媒体文件
 
