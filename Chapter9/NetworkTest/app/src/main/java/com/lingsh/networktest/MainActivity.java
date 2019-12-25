@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button xmlPullParser = (Button) findViewById(R.id.xml_pull_parser_test);
+        Button xmlDomParser = (Button) findViewById(R.id.xml_dom_parser_test);
         Button xmlSAXParser = (Button) findViewById(R.id.xml_sax_parser_test);
         Button jsonParser = (Button) findViewById(R.id.json_normal_parser_test);
         Button jsonGsonParser = (Button) findViewById(R.id.json_gson_parser_test);
@@ -49,6 +50,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 XmlOrJsonParser.parserXMLByPull(XmlOrJsonParser.xmlTestData);
+            }
+        });
+
+        xmlDomParser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                XmlOrJsonParser.parserXMLByDom(XmlOrJsonParser.xmlTestData);
             }
         });
 

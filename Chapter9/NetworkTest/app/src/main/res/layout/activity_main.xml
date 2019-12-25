@@ -48,6 +48,13 @@
             android:textAllCaps="false" />
 
         <Button
+            android:id="@+id/xml_dom_parser_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="XMLParser(DOM)"
+            android:textAllCaps="false" />
+
+        <Button
             android:id="@+id/json_normal_parser_test"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

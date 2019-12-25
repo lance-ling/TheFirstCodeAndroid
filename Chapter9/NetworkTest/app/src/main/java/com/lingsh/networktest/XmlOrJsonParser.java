@@ -8,6 +8,9 @@ import com.google.gson.reflect.TypeToken;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -21,6 +24,8 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.List;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -229,6 +234,51 @@ public class XmlOrJsonParser {
     }
 
     /**
+     * DOM解析方式
+     * <p>
+     * 1. 获取DocumentBuilderFactory实例 单例
+     * 2. 通过DocumentBuilderFactory实例得到DocumentBuilder对象
+     * 3. 调用DocumentBuilder对象的parse()方法进行解析
+     * 4. 调用DocumentBuilder对象.getElementByTagName(String) 获得所有指定名称的节点
+     * 5. 遍历节点
+     * *   1. .item(int) 取得指定位置节点
+     * *   2. .item(int).getChildNodes() 获得位置节点的子节点列表
+     * *   3. 通过Node.ELEMENT_NODE判断是否属于元素节点
+     * *   4. 是则可以强转为Element元素
+     * *   5. 通过.getNodeName()判断 再调用.getFirstChild().getNodeValue()方法获取值
+     *
+     * @param xmlData
+     */
+    public static void parserXMLByDom(String xmlData) {
+        Log.d(TAG, "parserXMLByDom: ");
+
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document document = builder.parse(new InputSource(new StringReader(xmlData)));
+
+            NodeList apps = document.getElementsByTagName(APP);
+            int length = apps.getLength();
+            String id = "";
+            String name = "";
+            String version = "";
+            for (int i = 0; i < length; i++) {
+                Element child = (Element) apps.item(i);
+                id = child.getElementsByTagName(ID).item(0).getFirstChild().getNodeValue();
+                name = child.getElementsByTagName(NAME).item(0).getFirstChild().getNodeValue();
+                version = child.getElementsByTagName(VERSION).item(0).getFirstChild().getNodeValue();
+                log(id, name, version);
+            }
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * 使用JSONObject
      * <p>
      * 1. 将数据传入JSONArray对象中
@@ -275,7 +325,8 @@ public class XmlOrJsonParser {
     public static void parserJsonByGson(String jsonData) {
         Gson gson = new Gson();
         List<AppBean> appBeans = (List<AppBean>) gson.fromJson(jsonData,
-                new TypeToken<List<AppBean>>() {}.getType());
+                new TypeToken<List<AppBean>>() {
+                }.getType());
         for (AppBean bean : appBeans) {
             log(bean.getId(), bean.getName(), bean.getVersion());
         }
