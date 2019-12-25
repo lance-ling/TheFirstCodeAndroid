@@ -62,6 +62,16 @@
 6. 调用XMLReader对象对parse()方法
 
 #### DOM解析方式
+1. 获取DocumentBuilderFactory实例 单例
+2. 通过DocumentBuilderFactory实例得到DocumentBuilder对象
+3. 调用DocumentBuilder对象的parse()方法进行解析
+4. 调用DocumentBuilder对象.getElementByTagName(String) 获得所有指定名称的节点
+5. 遍历节点 
+   1. .item(int) 取得指定位置节点
+   2. .item(int).getChildNodes() 获得位置节点的子节点列表
+   3. 通过Node.ELEMENT_NODE判断是否属于元素节点
+   4. 是则可以强转为Element元素 
+   5. 通过.getNodeName()判断 再调用.getFirstChild().getNodeValue()方法获取值
 
 ### 解析JSON格式数据
 #### 使用JSONObject
