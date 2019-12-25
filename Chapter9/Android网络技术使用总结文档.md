@@ -30,3 +30,88 @@
 
 ## XML、JSON数据解析方式
 
+### 解析XML格式数据
+#### Pull解析方式
+1. 获取XmlPullParserFactory实例 单例
+2. 通过XmlPullParserFactory实例得到XmlPullParser对象
+3. 调用XmlPullParser对象的setInput方法 填入XML数据进行解析
+4. 通过parser对象的getEventType方法得到当前的解析事件
+5. 以XmlPullParser.END_DOCUMENT为解析结尾标识 
+   1. 通过getName()方法得到当前节点的名字
+   2. 调用next()方法获取下一个解析事件
+   3. 调用nextText()方法获取节点内具体内容
+   4. 以XmlPullParser.END_TAG为标识表示开始解析某个节点
+   5. 以XmlPullParser.END_TAG为标识完成解析某个节点
+
+#### SAX解析方式
+1. 新建一个类继承DefaultHandler 重写父类的方法
+   1. startDocument() 开始解析XML
+   2. startElement() 开始解析XML某个节点
+   3. characters() 获取节点内容
+   4. endElement() 完成解析某个节点
+   5. endDocument() 完成整个XML解析之后
+2. 在自建类内部
+   1. 节点名称:String 节点内容:StringBuilder
+   2. 在startDocumnet() 初始化节点内容实例
+   3. 在startElement() 记录当前节点名称
+   4. 在characters() 根据当前的节点名判断将内容添加到哪一个StringBuilder对象
+   5. 在endElement() 重置StringBuilder对象
+3. 先创建SAXParserFactory对象
+4. SAXParserFactory对象.newSAXParser().getXMLReader() 获取XMLReader对象
+5. 实例化自建类 置入XMLReader对象的setContentHandler()方法
+6. 调用XMLReader对象对parse()方法
+
+#### DOM解析方式
+
+### 解析JSON格式数据
+#### 使用JSONObject
+1. 将数据传入JSONArray对象中
+2. 循环遍历JSONArray对象 取出每个JSONObject对象
+3. 通过JSONObject对象的getString()方法取出键值
+#### 使用GSON
+1. 添加gson依赖
+2. 实例化Gson对象
+   1. Gson对象.fromJson() 可以将JSON数据直接解析成Bean对象
+   2. 借助new TypeToken<List<Bean>>(){}.getType() 可以解析JSON数组成Bean对象列表
+
+### 测试数据
+#### XML
+```xml
+<apps>
+    <app>
+        <id>1</id>
+        <name>Google Maps</name>
+        <version>1.0</version>
+    </app>
+    <app>
+        <id>2</id>
+        <name>Chrome</name>
+        <version>2.1</version>
+    </app>
+    <app>
+        <id>3</id>
+        <name>Google Play</name>
+        <version>2.3</version>
+    </app>
+</apps>
+```
+#### JSON
+```json
+[
+  {
+    "id": "1",
+    "name": "Google Maps",
+    "version": "1.0"
+  },
+  {
+    "id": "2",
+    "name": "Chrome",
+    "version": "2.1"
+  },
+  {
+    "id": "3",
+    "name": "Google Play",
+    "version": "2.3"
+  }
+]
+```

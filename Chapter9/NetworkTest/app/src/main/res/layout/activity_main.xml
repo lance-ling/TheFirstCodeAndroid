@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/web_view_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="WebViewTest"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/http_url_connection_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HttpURLConnectionTest"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/ok_http_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OkHttpTest"
+        android:textAllCaps="false" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/xml_pull_parser_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="XMLParser(Pull)"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/xml_sax_parser_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="XMLParser(SAX)"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/json_normal_parser_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="JsonParser(JSONObject)"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/json_gson_parser_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="JsonParser(Gson)"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+</LinearLayout>
