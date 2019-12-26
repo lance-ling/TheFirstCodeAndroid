@@ -37,6 +37,8 @@
       3. onProgressUpdate(Progress...) 该方法在pulishProgress(Progress...)方法之后执行 `此处可以对UI进行操作`
       4. onPostExecute(Result) 该方法在任务执行完毕后调用 执行结果传入该方法 可以利用返回结果`进行UI操作`
 2. 实例化继承了AsyncTask的类 调用execute()方法启动
+
+
 ## 服务
 ### 概念
 1. 服务是Android中实现程序后台运行的解决方案
@@ -45,8 +47,19 @@
 
 ### 基本用法
 #### 定义一个服务
+1. 继承Service类
+2. 重写onBind() onCreate() onStartCommand() onDestory()方法
+3. 去AndroidManifest.xml清单文件注册服务
 #### 启动和停止服务
+1. startService() 启动服务
+2. stopService() 停止服务
 #### 活动和服务进行通信
+```java
+Activity:bindService() --> new ServiceConnection() {} --> Binder --> Service
+```
+1. 调用Activity的bindService()方法进行服务绑定
+2. 需要创建ServiceConnection实例 可以重写onServiceConnected()/onServiceDisconnected()方法对服务的连接和断开进行监听
+3. 在Service创建自定义Binder的继承类 可以在外部(Activity)的onServiceConnected()参数中获取到它 从而调用它的方法
 ### 服务的生命周期
 
 ### 使用服务的技巧

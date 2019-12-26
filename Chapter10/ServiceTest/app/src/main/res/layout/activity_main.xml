@@ -34,4 +34,11 @@
         android:text="Unbind Service"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/test_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test Action"
+        android:textAllCaps="false" />
+
 </LinearLayout>

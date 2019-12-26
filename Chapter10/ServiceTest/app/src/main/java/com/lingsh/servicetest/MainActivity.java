@@ -52,6 +52,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bind.setOnClickListener(this);
         unbind.setOnClickListener(this);
 
+
+        Button test = (Button) findViewById(R.id.test_action);
+        test.setOnClickListener(this);
     }
 
     @Override
@@ -68,6 +71,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.unbind_service:
                 unbindService(mConnection);
+                break;
+            case R.id.test_action:
+                if (mDownloadBinder != null) {
+                    mDownloadBinder.getProgress();
+                }
                 break;
             default:
                 break;
