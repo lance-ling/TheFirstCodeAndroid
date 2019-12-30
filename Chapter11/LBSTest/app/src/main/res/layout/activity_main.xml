@@ -6,9 +6,16 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/position_text_view"
+    <Button
+        android:id="@+id/open_2d_map"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="打开2D地图" />
+
+    <Button
+        android:id="@+id/open_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开当前定位信息" />
 
 </LinearLayout>
