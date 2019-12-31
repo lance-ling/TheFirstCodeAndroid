@@ -1,16 +1,18 @@
 package com.lingsh.lbstest;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
@@ -20,6 +22,25 @@ import com.amap.api.location.AMapLocationListener;
 public class LocationActivity extends AppCompatActivity {
 
     public static final int REQUEST_CODE = 1;
+
+    public static final String KEY_MODE = "mode";
+    /**
+     * 低能耗模式
+     */
+    public static final int MY_MODE_FIRST = 1;
+    /**
+     * 高精度模式
+     */
+    public static final int MY_MODE_SECOND = 2;
+
+    private int current_mode = 1;
+
+    public static void toThisActivity(Context from, int mode) {
+        Intent intent = new Intent(from, LocationActivity.class);
+        intent.putExtra(KEY_MODE, mode);
+        from.startActivity(intent);
+    }
+
     /**
      * 声明AMapLocationClient类对象
      */
@@ -66,6 +87,9 @@ public class LocationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
 
+        Intent intent = getIntent();
+        current_mode = intent.getIntExtra(KEY_MODE, 1);
+
         mPosition = (TextView) findViewById(R.id.position_text_view);
 
         // 运行时检测定位权限是否获取
@@ -87,8 +111,14 @@ public class LocationActivity extends AppCompatActivity {
 
         // 初始化AMapLocationClientOption对象
         mLocationClientOption = new AMapLocationClientOption();
-        // 设置定位模式为AmapLocationMode.Battery_Saving 低能耗模式
-        mLocationClientOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Battery_Saving);
+        if (current_mode == MY_MODE_FIRST) {
+            // 设置定位模式为AmapLocationMode.Battery_Saving 低能耗模式
+            mLocationClientOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Battery_Saving);
+        } else if (current_mode == MY_MODE_SECOND) {
+            // 设置定位模式为AmapLocationMode.Hight_Accuracy 高精度模式
+            mLocationClientOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
+        }
+
         // 获取一次定位 默认为false 置为true表示只定位一次
         // mLocationClientOption.setOnceLocation(true);
         mLocationClientOption.setInterval(1000);

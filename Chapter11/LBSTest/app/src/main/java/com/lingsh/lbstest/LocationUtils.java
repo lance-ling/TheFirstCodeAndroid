@@ -19,7 +19,7 @@ public class LocationUtils {
         if (null == location) {
             return null;
         }
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         //errCode等于0代表定位成功，其他的为定位失败，具体的可以参照官网定位错误码说明
         if (location.getErrorCode() == 0) {
             sb.append("定位成功" + "\n");
@@ -44,7 +44,7 @@ public class LocationUtils {
             sb.append("国    家    : " + location.getCountry() + "\n");
             sb.append("省            : " + location.getProvince() + "\n");
             sb.append("市            : " + location.getCity() + "\n");
-            sb.append("城市编码 : " + location.getCityCode() + "\n");
+            sb.append("城市编码 : ").append(location.getCityCode()).append("\n");
             sb.append("区            : " + location.getDistrict() + "\n");
             sb.append("区域 码   : " + location.getAdCode() + "\n");
             sb.append("地    址    : " + location.getAddress() + "\n");

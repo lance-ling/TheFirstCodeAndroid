@@ -18,4 +18,16 @@
         android:layout_height="wrap_content"
         android:text="打开当前定位信息" />
 
+    <Button
+        android:id="@+id/open_location_ha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开当前定位信息(高精度模式)" />
+
+    <Button
+        android:id="@+id/open_detail_map"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开详细地图" />
+
 </LinearLayout>
